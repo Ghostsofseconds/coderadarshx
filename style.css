@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+/* Background Thunder Flash */
+.thunder-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1), transparent 70%);
+  animation: flash 6s infinite;
+  z-index: -2;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 0; }
+  10% { opacity: 1; }
+  11% { opacity: 0; }
+  12% { opacity: 1; }
+  13%, 99% { opacity: 0; }
+}
+
+canvas#particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
+
+/* Header */
+.name {
+  font-size: 3rem;
+  margin-top: 60px;
+  text-shadow: 0 0 10px cyan, 0 0 20px blue;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  color: #0ff;
+  height: 30px;
+}
+
+/* Profile */
+.profile-section {
+  margin-top: 40px;
+}
+.profile img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid cyan;
+  box-shadow: 0 0 25px cyan;
+}
+.view-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* About */
+.about, .projects, .contact {
+  margin: 60px 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
+}
+
+/* Projects */
+.projects h2 {
+  margin-bottom: 30px;
+  text-shadow: 0 0 15px cyan;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
+  transition: 0.4s;
+}
+.project-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 30px cyan;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 25px;
+  margin: 10px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+.btn.neon {
+  background: transparent;
+  border: 2px solid cyan;
+  box-shadow: 0 0 10px cyan, inset 0 0 10px cyan;
+}
+.btn.neon:hover {
+  background: cyan;
+  color: #000;
+}
+.btn.fire {
+  background: linear-gradient(45deg, #ff6a00, #ff0000);
+  border: none;
+  box-shadow: 0 0 15px #ff6a00, 0 0 25px #ff0000;
+}
+.btn.fire:hover {
+  box-shadow: 0 0 40px #ff0000, 0 0 60px #ff6a00;
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
