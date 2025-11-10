@@ -1,59 +1,8 @@
-// Typewriter Text Animation
-const text = [
-  "Turning Ideas into Interactive Experiences",
-  "Building the Future with Code",
-  "Creating Modern, Responsive Websites"
-];
-let i = 0, j = 0;
-let currentText = "", isDeleting = false;
-
-function type() {
-  currentText = text[i];
-  let displayText = isDeleting ? currentText.substring(0, j--) : currentText.substring(0, j++);
-  document.getElementById("typewriter").textContent = displayText;
-
-  if (!isDeleting && j === currentText.length) {
-    isDeleting = true;
-    setTimeout(type, 1500);
-  } else if (isDeleting && j === 0) {
-    isDeleting = false;
-    i = (i + 1) % text.length;
-    setTimeout(type, 400);
-  } else {
-    setTimeout(type, isDeleting ? 40 : 100);
-  }
-}
-type();
-
-// Particle Effect
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-for (let i = 0; i < 120; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 2,
-    dx: (Math.random() - 0.5) * 0.8,
-    dy: (Math.random() - 0.5) * 0.8
-  });
-}
-
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "rgba(0,255,255,0.8)";
-  particles.forEach(p => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fill();
-    p.x += p.dx;
-    p.y += p.dy;
-    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-  });
-  requestAnimationFrame(animateParticles);
-}
-animateParticles();
+// Simple thunder flash effect
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.querySelector(".overlay");
+  setInterval(() => {
+    overlay.style.background = "rgba(255,255,255,0.2)";
+    setTimeout(() => overlay.style.background = "rgba(0,0,0,0.6)", 100);
+  }, 4000);
+});
